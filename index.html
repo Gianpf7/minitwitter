@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Kaushan+Script|Lobster|Pacifico|Poiret+One|Roboto|Ubuntu+Condensed"
+        rel="stylesheet">
+    <link href="fonts/fonts.css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <title>Mini-Twitter</title>
+</head>
+
+<body style="background-color: #2E4159">
+    <nav class="navbar navbar-default" style="margin-bottom: 0">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mini-Twitter</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#">Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Procure algo aqui.">
+                    </div>
+                    <button type="submit" class="btn btn-default">Procurar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="background-color: #EEE">
+        <div style="display: inline-flex; padding: 2%; width: 100%">
+            <div style="width: 50%; text-align: center">
+                <h1 class="lobster">Bem vindo ao Mini-Twitter.</h1>
+            </div>
+            <div style="width: 50%;">
+                <img style="width: 30%" src="http://www.canariosbelga.com.br/wp-content/uploads/2015/08/can%C3%A1rio-de-canto-cl%C3%A1ssico.png"></img>
+            </div>
+        </div>
+        <div style="display: inline-flex; width: 100%">
+            <div style="width: 49%; margin-right: 2%">
+                <h1 class="fredoka" style="text-align: center">Cadastrar</h1>
+                <form id="cadastro">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" class="form-control" id="nome" placeholder="Ex: José da Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario">Nome de Usuário</label>
+                        <input type="text" class="form-control" id="usuario" placeholder="Ex: @jose_silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" class="form-control" id="email" placeholder="Ex: jose_silva@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="form-control" id="senha" placeholder="Ex: ********">
+                    </div>
+                    <div class="form-group">
+                        <label for="foto">Foto de até 1024x1024 pixels</label>
+                        <input type="file" class="form-control" id="foto">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Aceito os termos de uso e condições.
+                        </label>
+                    </div>
+                    <button type="reset" class="btn btn-danger">Limpar</button>
+                    <button type="submit" class="btn btn-success" >Cadastrar</button>
+                </form>
+            </div>
+            <div style="width: 50%">
+                <h1 class="fredoka" style="text-align: center">Login</h1>
+                <form id="logar">
+                    <div class="form-group">
+                        <label for="login">Usuario</label>
+                        <input type="text" class="form-control" id="login" placeholder="@Usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="senhaLogin">Senha</label>
+                        <input type="text" class="form-control" id="senhaLogin" placeholder="Senha">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Aceito os termos de uso e condições.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="loga">logar</button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <h1 style="text-align: center">Fontes:</h1>
+            <h1 class="roboto" style="text-align: center">Roboto</h1>
+            <h1 class="lobster" style="text-align: center">Lobster</h1>
+            <h1 class="poiret" style="text-align: center">Poiret</h1>
+            <h1 class="fredoka" style="text-align: center">Fredoka</h1>
+            <h1 class="pacifico" style="text-align: center">Pacifico</h1>
+            <h1 class="kaushan" style="text-align: center">Kaushan</h1>
+            <h1 class="ubuntu" style="text-align: center">Ubuntu</h1>
+        </div>
+    </div>
+</body>
+<script>
+    console.log("bruno");
+    $("#cadastro").submit( function (event){
+        var form = document.forms['cadastro'];
+        var data = new FormData();
+        data.append('nome', form['nome'].value);
+        data.append('usuario', form['usuario'].value);
+        data.append('email', form['email'].value);
+        data.append('senha', form['senha'].value);
+        data.append('foto', form['foto'].files[0]);
+        console.log(form['foto'][0]);
+        Console.log("oi");
+        axios.post('/minitwitter/Usuario/cadastraUsuario.php', data)
+        .then(function (response) {
+            var resposta = JSON.parse(response.data);
+            console.log(response.data);
+            console.log(JSON.parse(response.data));
+            alert(resposta['sucesso']);
+            alert(resposta['user']);
+        })
+        .catch(function (error) {
+            console.log("Err");
+            console.log(JSON.PARSE(error.data));
+        })
+    }
+    );
+</script>
+</html>
