@@ -64,9 +64,11 @@ if(empty($foto['name'])) {
 $result = $conn->query($query);
 
 if (!$result){
-  echo json_encode('{"erro": "Ops, ocorreu um erro! Reinicie a pagina e tente novamente."}');
+  $retorno['erro'] = "Ops, ocorreu um erro! Reinicie a pagina e tente novamente.";
+  echo json_encode($retorno);
 } else {
-  echo json_encode("{'sucesso': 'Tweet Alterado!'}");
+  $retorno['sucesso'] = "Tweet Editado!";
+  echo json_encode($retorno);
 }
 $conn->close();
 ?>
