@@ -2,9 +2,9 @@
 require_once("../conecta.php");
 require_once("../utils.php");
 
-	$usuario = $_POST["usuario"];
-	$senha = md5($_POST["senha"]);
-	$lembrar = isset($_POST["lembrar"]);
+	$usuario = fromPost["usuario"];
+	$senha = md5(fromPost["senha"]);
+	$lembrar = isset(fromPost["lembrar"]);
 	$_COOKIE['lembrar'] = $usuario;
 	$query = "SELECT id, nome, email, foto FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
 	$result = $conn->query($query);

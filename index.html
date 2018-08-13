@@ -120,7 +120,6 @@
     </div>
 </body>
 <script>
-    console.log("bruno");
     $("#cadastro").submit( function (event){
         var form = document.forms['cadastro'];
         var data = new FormData();
@@ -130,7 +129,6 @@
         data.append('senha', form['senha'].value);
         data.append('foto', form['foto'].files[0]);
         console.log(form['foto'][0]);
-        Console.log("oi");
         axios.post('/minitwitter/Usuario/cadastraUsuario.php', data)
         .then(function (response) {
             var resposta = JSON.parse(response.data);
